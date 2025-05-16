@@ -61,7 +61,7 @@ const newPassport = function (person) {
 
 newPassport(jonas);
 checkIn(flight, jonas);
-*/
+
 
 //////////////////////////////////////////////////
 // Functions Accepting Callback Functions
@@ -92,3 +92,32 @@ const high5 = function () {
 document.addEventListener('click', high5);
 
 ['Jonas', 'Martha', 'Adam'].forEach(high5);
+*/
+
+//////////////////////////////////////////////////
+// Functions Returning Functions
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greeterHey = greet('Hey');
+greeterHey('Jonas');
+greeterHey('Steven');
+
+greet('Hello')('Jonas');
+
+// Challenge
+// My version as Arrow function
+const greetArrow = greeting => {
+  return name => {
+    console.log(`${greeting} ${name}`);
+  };
+};
+greetArrow('Hi')('Najmo');
+
+// Jonas' version
+const greetArr = greeting => name => console.log(`${greeting} ${name}`);
+
+greetArr('Hiya')('Alex');
